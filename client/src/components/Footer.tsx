@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Twitter, Github, MessageCircle } from "lucide-react";
 import { SiSolana } from "react-icons/si";
-import logoSymbol from "@assets/SolVend_Logo_Symbol3_1760091042423.png";
+import logoSymbol from "@assets/SolVend_Logo_1760092890705.png";
 
 export default function Footer() {
   const socialLinks = [
@@ -43,8 +43,7 @@ export default function Footer() {
               viewport={{ once: true }}
               className="flex items-center gap-3 mb-4"
             >
-              <img src={logoSymbol} alt="SolVend" className="w-10 h-10" />
-              <span className="font-heading text-2xl font-bold">SolVend</span>
+              <img src={logoSymbol} alt="SolVend" className="h-8 w-auto" />
             </motion.div>
             <p className="text-muted-foreground mb-6 max-w-sm">
               The world's first Buy-to-Earn vending machine, powered by Solana. 

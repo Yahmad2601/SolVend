@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
-import logoSymbol from "@assets/SolVend_Logo_Symbol3_1760091042423.png";
+import logoSymbol from "@assets/SolVend_Logo_1760092890705.png";
+import ThemeToggle from "./ThemeToggle";
 
 export default function HeroSection() {
   const scrollToSection = (id: string) => {
@@ -11,6 +12,11 @@ export default function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Theme toggle - fixed position */}
+      <div className="fixed top-6 right-6 z-50">
+        <ThemeToggle />
+      </div>
+
       {/* Animated gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-background to-accent/20" />
       
@@ -39,7 +45,7 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mb-8 flex justify-center lg:justify-start"
             >
-              <img src={logoSymbol} alt="SolVend" className="w-20 h-20" />
+              <img src={logoSymbol} alt="SolVend" className="w-32 h-auto" />
             </motion.div>
 
             <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
