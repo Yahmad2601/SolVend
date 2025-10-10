@@ -1,31 +1,25 @@
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
-import { ShoppingCart, Smartphone, Coins, TrendingUp } from "lucide-react";
+import { Smartphone, Coins, PackageOpen } from "lucide-react";
 
 const steps = [
   {
-    icon: ShoppingCart,
-    number: "01",
-    title: "Buy from SolVend",
-    description: "Purchase your favorite drink from any SolVend machine using Solana",
-  },
-  {
     icon: Smartphone,
-    number: "02",
-    title: "Receive Your NFT",
-    description: "Get a unique, evolving NFT that grows with each purchase you make",
+    number: "01",
+    title: "Buy Your Drink",
+    description: "Choose your favorite drink in the app and pay seamlessly with your Google account or Solana wallet.",
   },
   {
     icon: Coins,
-    number: "03",
-    title: "Earn Rewards",
-    description: "Earn USDC rewards and participate in our ethical data marketplace",
+    number: "02",
+    title: "Earn Instantly",
+    description: "Receive rewards directly to your wallet for your purchase and for anonymously sharing your data.",
   },
   {
-    icon: TrendingUp,
-    number: "04",
-    title: "Watch It Grow",
-    description: "Your NFT evolves and your passive income increases over time",
+    icon: PackageOpen,
+    number: "03",
+    title: "Dispense & Enjoy",
+    description: "Enter your unique 4-digit code on the vending machine keypad and enjoy your cold drink.",
   },
 ];
 
@@ -41,16 +35,13 @@ export default function HowItWorks() {
           className="text-center mb-16"
         >
           <h2 className="font-heading text-4xl md:text-5xl font-bold mb-4">
-            How It Works
+            Getting Rewarded is Easy as 1-2-3
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Four simple steps to start earning from your everyday purchases
-          </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+        <div className="grid md:grid-cols-3 gap-6 relative">
           {/* Connecting line for desktop */}
-          <div className="hidden lg:block absolute top-1/4 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/20 via-accent/40 to-primary/20" />
+          <div className="hidden md:block absolute top-1/4 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/20 via-accent/40 to-primary/20" />
 
           {steps.map((step, index) => (
             <motion.div

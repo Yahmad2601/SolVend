@@ -49,12 +49,11 @@ export default function HeroSection() {
             </motion.div>
 
             <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Own the Future
+              Quench Your Thirst. Own the Future.
             </h1>
             
             <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl">
-              The world's first Buy-to-Earn vending machine, powered by Solana. 
-              Get rewarded every time you buy a drink.
+              SolVend is the world's first Buy-to-Earn vending machine, powered by Solana. Get paid every time you buy a drink.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">

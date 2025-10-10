@@ -5,7 +5,7 @@ import logoSymbol from "@assets/SolVend_Logo_1760092890705.png";
 
 export default function Footer() {
   const socialLinks = [
-    { icon: Twitter, href: "#", label: "Twitter", testId: "link-twitter" },
+    { icon: Twitter, href: "https://twitter.com/solvend", label: "Twitter/X", testId: "link-twitter" },
     { icon: Github, href: "#", label: "GitHub", testId: "link-github" },
     { icon: MessageCircle, href: "#", label: "Discord", testId: "link-discord" },
   ];
@@ -13,14 +13,14 @@ export default function Footer() {
   const links = {
     product: [
       { label: "How It Works", href: "#how-it-works" },
-      { label: "Features", href: "#features" },
-      { label: "For Users", href: "#users" },
-      { label: "For Businesses", href: "#businesses" },
+      { label: "Buy-to-Earn", href: "#buy-to-earn" },
+      { label: "Join Now", href: "#onboarding" },
+      { label: "For Businesses", href: "#enterprise" },
     ],
     company: [
       { label: "About", href: "#" },
-      { label: "Blog", href: "#" },
-      { label: "Careers", href: "#" },
+      { label: "Hackathon", href: "#" },
+      { label: "Contact", href: "mailto:hello@solvend.xyz" },
       { label: "Press Kit", href: "#" },
     ],
     resources: [
