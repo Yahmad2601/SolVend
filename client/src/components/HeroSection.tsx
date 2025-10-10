@@ -85,32 +85,10 @@ export default function HeroSection() {
             className="relative hidden lg:block"
           >
             <div className="relative h-[600px] flex items-center justify-center">
-              {/* Floating elements with parallax effect */}
-              <motion.div
-                animate={{ y: [0, -20, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-0 right-0 w-32 h-32 rounded-xl overflow-hidden border-2 border-primary/30"
-              >
-                <div className="w-full h-full bg-gradient-to-br from-primary to-accent flex items-center justify-center text-6xl">
-                  🎨
-                </div>
-              </motion.div>
-
-              <motion.div
-                animate={{ y: [0, 20, 0], rotate: [0, 5, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute bottom-20 left-0 w-24 h-24 rounded-full bg-gradient-to-br from-accent to-primary flex items-center justify-center text-5xl border-2 border-accent/30"
-              >
-                💰
-              </motion.div>
-
-              <motion.div
-                animate={{ scale: [1, 1.05, 1] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="relative z-10"
-              >
-                <div className="text-9xl">🥤</div>
-              </motion.div>
+              {/* Space reserved for vending machine design */}
+              <div className="w-full h-full flex items-center justify-center">
+                {/* Your vending machine design will go here */}
+              </div>
             </div>
           </motion.div>
         </div>
