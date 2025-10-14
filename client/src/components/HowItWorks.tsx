@@ -15,7 +15,7 @@ const steps = [
     number: "02",
     title: "Dispense & Enjoy",
     description:
-      "Get a unique 4-digit code to input on the vending machine keypad and enjoy your cold drink.",
+      "Get a unique 4-digit code through the app to input on the machine keypad and enjoy your cold drink.",
   },
   {
     icon: Coins,

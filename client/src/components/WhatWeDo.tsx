@@ -2,6 +2,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import { DollarSign, Zap } from "lucide-react";
 import nftBottleImage from "@/assets/nft_bottle.png";
+import UsainBolt from "@/assets/Usain.png";
+import Revenue from "@/assets/revenue.png";
 
 const features = [
   {
@@ -11,13 +13,13 @@ const features = [
       "Every drink you buy helps you build a unique, evolving NFT. Starting with a base collectible, as it transforms with each purchase, thereby unlocking rare tradable assets.",
   },
   {
-    icon: DollarSign,
+    imageSrc: Revenue,
     title: "Earn Direct Revenue",
     description:
       "You have the choice to anonymously contribute your purchasing habits to a secure data pool and when companies like Coca-Cola pay for insights, you get a share of the revenue in USDC.",
   },
   {
-    icon: Zap,
+    imageSrc: UsainBolt,
     title: "Seamless Solana Pay",
     description:
       "Experience fast, secure, and low-cost transactions. A simple in-app purchase gets you a code to dispense your drink instantly.",
@@ -59,14 +61,14 @@ export default function WhatWeDo() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="text-center"
             >
-              {feature.icon && (
-                <feature.icon className="w-24 h-24 mx-auto mb-5 text-primary" />
-              )}
+              {/* {feature.icon && (
+                <feature.icon className="w-20 h-20 mx-auto mb-5 text-primary" />
+              )} */}
               {feature.imageSrc && (
                 <img
                   src={feature.imageSrc}
                   alt={feature.title}
-                  className="w-24 h-24 mx-auto mb-5 object-contain"
+                  className="w-20 h-20 mx-auto mb-5 object-contain"
                 />
               )}
               <h3 className="text-xl font-bold mb-3">{feature.title}</h3>

@@ -4,7 +4,10 @@ import { SiGoogle, SiSolana } from "react-icons/si";
 
 export default function OnboardingSection() {
   return (
-    <section className="py-24 md:py-32" id="onboarding">
+    <section
+      className="py-24 md:py-32 bg-gray-50 dark:bg-gray-900/50"
+      id="onboarding "
+    >
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
