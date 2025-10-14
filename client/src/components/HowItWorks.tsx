@@ -7,19 +7,22 @@ const steps = [
     icon: Smartphone,
     number: "01",
     title: "Buy Your Drink",
-    description: "Choose your favorite drink in the app and pay seamlessly with your Google account or Solana wallet.",
-  },
-  {
-    icon: Coins,
-    number: "02",
-    title: "Earn Instantly",
-    description: "Receive rewards directly to your wallet for your purchase and for anonymously sharing your data.",
+    description:
+      "Select your favorite drink in the app and pay seamlessly via Solana Pay.",
   },
   {
     icon: PackageOpen,
-    number: "03",
+    number: "02",
     title: "Dispense & Enjoy",
-    description: "Enter your unique 4-digit code on the vending machine keypad and enjoy your cold drink.",
+    description:
+      "Get a unique 4-digit code to input on the vending machine keypad and enjoy your cold drink.",
+  },
+  {
+    icon: Coins,
+    number: "03",
+    title: "Earn Instantly",
+    description:
+      "Receive rewards directly to your wallet for your purchase and for anonymously sharing your data.",
   },
 ];
 
@@ -51,7 +54,10 @@ export default function HowItWorks() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card className="p-8 relative hover-elevate active-elevate-2 h-full" data-testid={`card-step-${index + 1}`}>
+              <Card
+                className="p-8 relative hover-elevate active-elevate-2 h-full"
+                data-testid={`card-step-${index + 1}`}
+              >
                 {/* Step number */}
                 <div className="absolute top-4 right-4 text-6xl font-bold text-primary/10 font-heading">
                   {step.number}
