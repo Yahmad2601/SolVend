@@ -62,7 +62,7 @@ export default function Header({ isDark, setIsDark }: HeaderProps) {
           </Button>
           <Button
             size="sm"
-            className="hidden sm:flex text-xs font-semibold px-4 h-9 bg-gray-900 text-white rounded-lg hover:bg-gray-700 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-200 transition-colors"
+            className="hidden sm:flex text-xs font-semibold px-4 h-9 bg-gray-900 text-white rounded-lg hover:bg-accent dark:bg-white dark:text-gray-900 dark:hover:bg-gray-200 transition-colors"
           >
             Join Waitlist
           </Button>

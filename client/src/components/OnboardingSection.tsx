@@ -17,12 +17,16 @@ export default function OnboardingSection() {
           className="text-center max-w-4xl mx-auto"
         >
           <h2 className="font-heading text-4xl md:text-5xl font-bold mb-6">
-            No Crypto Experience Needed. Seriously.
+            Seamless Onboarding
           </h2>
           <p className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto">
             We believe the future of the internet should be for everyone. That's
-            why you can get started with your Google account in one click. We'll
-            create a secure Solana wallet for you in the background.
+            why we are implementing a dual login system. A standard "Connect
+            Wallet" button for Crypto Natives and a familiar "Continue with
+            Google" button for Mainstream Users which will automatically and
+            non-custodially generate a unique Solana wallet tied to the user's
+            Google account while we provide a gentle on-ramp to full
+            self-custody later on.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center max-w-2xl mx-auto">
@@ -36,7 +40,7 @@ export default function OnboardingSection() {
               <Button
                 size="lg"
                 variant="outline"
-                className="w-full text-lg h-16 border-2 hover-elevate active-elevate-2"
+                className="w-full text-lg h-16 border-2 hover-elevate active-elevate-2 text-accent"
                 data-testid="button-wallet-connect"
               >
                 <SiSolana className="w-6 h-6 mr-3" />

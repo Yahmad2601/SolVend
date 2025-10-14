@@ -16,13 +16,13 @@ const features = [
     imageSrc: Revenue,
     title: "Earn Direct Revenue",
     description:
-      "You have the choice to anonymously contribute your purchasing habits to a secure data pool and when companies like Coca-Cola pay for insights, you get a share of the revenue in USDC.",
+      "You have the choice to anonymously contribute your purchasing habits to a secure data pool and when companies like Coca-Cola & PepsiCo pay for insights, you get a share of the revenue in USDC.",
   },
   {
     imageSrc: UsainBolt,
-    title: "Seamless Solana Pay",
+    title: "Enjoy Fast Transaction",
     description:
-      "Experience fast, secure, and low-cost transactions. A simple in-app purchase gets you a code to dispense your drink instantly.",
+      "Process your payment and dispense your drink in 9.58 seconds. The same time it took Usain Bolt to set the 100m world record.",
   },
 ];
 
@@ -43,11 +43,9 @@ export default function WhatWeDo() {
           <h2 className="font-heading text-4xl md:text-5xl font-bold mb-4">
             A Transaction That Pays You Back
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400">
+          <p className="text-lg md:text-xl">
             SolVend transforms a simple purchase into a rewarding economic
-            activity with the aid of a mobile app and a vending machine. We're a
-            decentralized commerce protocol where every transaction earns you
-            tangible value.
+            activity with the aid of a mobile app and a vending machine.
           </p>
         </motion.div>
 
@@ -71,7 +69,7 @@ export default function WhatWeDo() {
                   className="w-20 h-20 mx-auto mb-5 object-contain"
                 />
               )}
-              <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
+              <h3 className="text-xl font-bold mb-3 ">{feature.title}</h3>
               <p className="text-gray-600 dark:text-gray-400">
                 {feature.description}
               </p>
