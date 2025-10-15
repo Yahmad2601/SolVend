@@ -3,7 +3,6 @@ import type { VercelRequest, VercelResponse } from "@vercel/node";
 async function fetchCountFromBrevo() {
   const { BREVO_API_KEY, BREVO_LIST_ID } = process.env;
   if (!BREVO_API_KEY || !BREVO_LIST_ID) {
-    console.warn("Brevo env vars not set.");
     return 0;
   }
   try {
@@ -11,10 +10,7 @@ async function fetchCountFromBrevo() {
       `https://api.brevo.com/v3/contacts/lists/${BREVO_LIST_ID}`,
       { headers: { "api-key": BREVO_API_KEY } }
     );
-    if (!response.ok) {
-      console.error("Failed to fetch count from Brevo.");
-      return 0;
-    }
+    if (!response.ok) return 0;
     const data = await response.json();
     return data.totalSubscribers || 0;
   } catch (error) {
@@ -24,7 +20,6 @@ async function fetchCountFromBrevo() {
 }
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-  // Enable CORS
   res.setHeader("Access-Control-Allow-Credentials", "true");
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "GET,OPTIONS");
@@ -42,7 +37,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const count = await fetchCountFromBrevo();
     return res.status(200).json({ count });
   } catch (error) {
-    console.error("Error in waitlist-count:", error);
     return res.status(500).json({ count: 0, message: "Error fetching count" });
   }
 }
