@@ -1,36 +1,35 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
-import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
+// This is the combined and corrected configuration for Vercel deployment.
 export default defineConfig({
-  plugins: [
-    react(),
-    runtimeErrorOverlay(),
-    ...(process.env.NODE_ENV !== "production" &&
-    process.env.REPL_ID !== undefined
-      ? [
-          await import("@replit/vite-plugin-cartographer").then((m) =>
-            m.cartographer(),
-          ),
-          await import("@replit/vite-plugin-dev-banner").then((m) =>
-            m.devBanner(),
-          ),
-        ]
-      : []),
-  ],
+  // We are only keeping the essential 'react()' plugin.
+  // The Replit-specific plugins have been removed.
+  plugins: [react()],
+
+  // We are standardizing the path aliases.
   resolve: {
     alias: {
-      "@": path.resolve(import.meta.dirname, "client", "src"),
-      "@shared": path.resolve(import.meta.dirname, "shared"),
-      "@assets": path.resolve(import.meta.dirname, "attached_assets"),
+      // "@" will now correctly point to your main source folder.
+      "@": path.resolve(__dirname, "client/src"),
+      // We keep the "@shared" alias as it might be used in your project.
+      "@shared": path.resolve(__dirname, "shared"),
+      // We are correcting the "@assets" alias to point to the correct folder.
+      "@assets": path.resolve(__dirname, "client/src/assets"),
     },
   },
-  root: path.resolve(import.meta.dirname, "client"),
+
+  // The 'root' property has been removed to allow Vercel to handle the project structure correctly.
+
+  // The build output is simplified to work with Vercel's static-build configuration.
   build: {
-    outDir: path.resolve(import.meta.dirname, "dist/public"),
+    outDir: "dist",
     emptyOutDir: true,
   },
+
+  // The 'server' configuration is for local development and can be removed for cleaner deployment,
+  // but it is harmless to keep.
   server: {
     fs: {
       strict: true,
