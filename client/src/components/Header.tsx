@@ -11,7 +11,7 @@ interface HeaderProps {
 
 const navLinks = [
   { name: "How it Works", id: "how-it-works" },
-  { name: "Buy-to-Earn", id: "buy-to-earn" },
+  { name: "Onboarding", id: "onboarding" },
   { name: "For Businesses", id: "enterprise" },
 ];
 
@@ -63,6 +63,11 @@ export default function Header({ isDark, setIsDark }: HeaderProps) {
           <Button
             size="sm"
             className="hidden sm:flex text-xs font-semibold px-4 h-9 bg-gray-900 text-white rounded-lg hover:bg-accent dark:bg-white dark:text-gray-900 dark:hover:bg-gray-200 transition-colors"
+            onClick={() =>
+              document
+                .getElementById("EmailCTA")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
           >
             Join Waitlist
           </Button>

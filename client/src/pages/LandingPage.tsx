@@ -3,9 +3,9 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import WhatWeDo from "@/components/WhatWeDo";
 import HowItWorks from "@/components/HowItWorks";
-import BuyToEarnEngine from "@/components/BuyToEarnEngine";
 import OnboardingSection from "@/components/OnboardingSection";
 import EnterpriseSection from "@/components/EnterpriseSection";
+import EmailCTA from "@/components/EmailCTA";
 import Footer from "@/components/Footer";
 
 export default function LandingPage() {
@@ -38,11 +38,11 @@ export default function LandingPage() {
         <HeroSection />
         <WhatWeDo />
         <HowItWorks />
-        {/* <BuyToEarnEngine /> */}
         <OnboardingSection />
         <EnterpriseSection />
+        <EmailCTA />
       </main>
-      <Footer isDark={isDark} />
+      <Footer />
     </div>
   );
 }

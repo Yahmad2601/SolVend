@@ -6,7 +6,7 @@ export default function OnboardingSection() {
   return (
     <section
       className="py-24 md:py-32 bg-gray-50 dark:bg-gray-900/50"
-      id="onboarding "
+      id="onboarding"
     >
       <div className="container mx-auto px-6">
         <motion.div

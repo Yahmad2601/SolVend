@@ -10,15 +10,15 @@ const benefits = [
   },
   {
     icon: BarChart3,
-    title: "Real-Time & Ethically Sourced",
+    title: "Data Access with Stablecoins",
     description:
-      "Access 100% consented, anonymous data that respects user privacy and provides live consumer insights.",
+      "A beverage company (e.g., Coca-Cola) pays in USDC to query this data pool for specific reports (e.g., Peak Sprite consumption times in Abuja, Nigeria).",
   },
   {
     icon: Zap,
-    title: "Community Powered & Driven",
+    title: "On-Chain Revenue Sharing",
     description:
-      "Leverage data from real, engaged users who are rewarded for their participation in the ecosystem.",
+      " A smart contract automatically distributes the USDC payment, with the majority shared pro-rata among all users who opted-in and contributed data to that report.",
   },
 ];
 
