@@ -1,19 +1,14 @@
 // api/index.ts
-
 import express, { type Express } from "express";
-import "dotenv/config"; // Make sure to load environment variables
+import "dotenv/config";
 
 const app: Express = express();
 app.use(express.json());
 
-// In-memory store for the waitlist count.
 let waitlistCount = 0;
 
-// --- Helper function to get initial count from Brevo ---
 async function fetchInitialCount() {
-  const BREVO_API_KEY = process.env.BREVO_API_KEY;
-  const BREVO_LIST_ID = process.env.BREVO_LIST_ID;
-
+  const { BREVO_API_KEY, BREVO_LIST_ID } = process.env;
   if (!BREVO_API_KEY || !BREVO_LIST_ID) {
     console.warn("Brevo env vars not set. Count starts at 0.");
     return 0;
@@ -23,10 +18,14 @@ async function fetchInitialCount() {
       `https://api.brevo.com/v3/contacts/lists/${BREVO_LIST_ID}`,
       { headers: { "api-key": BREVO_API_KEY } }
     );
-    if (!response.ok) return 0;
+    if (!response.ok) {
+      console.error("Failed to fetch initial count from Brevo.");
+      return 0;
+    }
     const data = await response.json();
     return data.totalSubscribers || 0;
   } catch (error) {
+    console.error("Error fetching initial count:", error);
     return 0;
   }
 }
@@ -37,24 +36,23 @@ fetchInitialCount().then((count) => {
   console.log(`Initial waitlist count loaded: ${waitlistCount}`);
 });
 
-// --- API Route to get the current waitlist count ---
 app.get("/api/waitlist-count", (_req, res) => {
   res.status(200).json({ count: waitlistCount });
 });
 
-// --- API Route for email subscription ---
 app.post("/api/subscribe", async (req, res) => {
-  const { email } = req.body;
-  if (!email || !email.includes("@")) {
-    return res.status(400).json({ message: "Invalid email provided." });
-  }
-
-  const { BREVO_API_KEY, BREVO_LIST_ID } = process.env;
-  if (!BREVO_API_KEY || !BREVO_LIST_ID) {
-    return res.status(500).json({ message: "Server configuration error." });
-  }
-
   try {
+    const { email } = req.body;
+    if (!email || !email.includes("@")) {
+      return res.status(400).json({ message: "Invalid email provided." });
+    }
+
+    const { BREVO_API_KEY, BREVO_LIST_ID } = process.env;
+    if (!BREVO_API_KEY || !BREVO_LIST_ID) {
+      console.error("Server configuration error: Brevo API keys are missing.");
+      return res.status(500).json({ message: "Server configuration error." });
+    }
+
     const brevoResponse = await fetch("https://api.brevo.com/v3/contacts", {
       method: "POST",
       headers: {
@@ -70,6 +68,7 @@ app.post("/api/subscribe", async (req, res) => {
 
     if (!brevoResponse.ok) {
       const errorData = await brevoResponse.json();
+      console.error("Failed to subscribe with Brevo:", errorData);
       return res
         .status(brevoResponse.status)
         .json({ message: "Failed to subscribe.", details: errorData });
@@ -78,9 +77,9 @@ app.post("/api/subscribe", async (req, res) => {
     waitlistCount++;
     return res.status(201).json({ message: "Successfully subscribed!" });
   } catch (error) {
-    return res.status(500).json({ message: "An error occurred." });
+    console.error("An unexpected error occurred in /api/subscribe:", error);
+    return res.status(500).json({ message: "An unexpected error occurred." });
   }
 });
 
-// Export the app for Vercel
 export default app;
