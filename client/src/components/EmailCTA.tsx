@@ -34,20 +34,31 @@ export default function EmailCTA() {
     setSubmissionState("submitting");
     setMessage("");
 
+    console.log("Submitting email:", email);
+
     try {
       const response = await fetch("/api/subscribe", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
         body: JSON.stringify({ email }),
       });
+
+      console.log("Response status:", response.status);
+      console.log("Response headers:", response.headers);
 
       // Check if response is JSON
       const contentType = response.headers.get("content-type");
       if (!contentType || !contentType.includes("application/json")) {
+        const text = await response.text();
+        console.error("Non-JSON response:", text);
         throw new Error("Server returned non-JSON response");
       }
 
       const data = await response.json();
+      console.log("Response data:", data);
 
       if (!response.ok) {
         throw new Error(data.message || "Something went wrong.");
