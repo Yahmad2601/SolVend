@@ -41,7 +41,14 @@ export default function EmailCTA() {
         body: JSON.stringify({ email }),
       });
 
+      // Check if response is JSON
+      const contentType = response.headers.get("content-type");
+      if (!contentType || !contentType.includes("application/json")) {
+        throw new Error("Server returned non-JSON response");
+      }
+
       const data = await response.json();
+
       if (!response.ok) {
         throw new Error(data.message || "Something went wrong.");
       }
@@ -49,12 +56,14 @@ export default function EmailCTA() {
       setSubmissionState("success");
       setMessage("Thank you! You're on the list.");
       setEmail("");
-      // --- UPDATE: Increment the count locally for instant feedback ---
       setCount((prevCount) => (prevCount !== null ? prevCount + 1 : 1));
     } catch (error) {
+      console.error("Submission error:", error);
       setSubmissionState("error");
       setMessage(
-        error instanceof Error ? error.message : "Failed to subscribe."
+        error instanceof Error
+          ? error.message
+          : "Failed to subscribe. Please try again."
       );
     }
   };
