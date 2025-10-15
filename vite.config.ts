@@ -3,25 +3,26 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 
 export default defineConfig({
-  // The root is correctly set to your frontend's directory
+  // This tells Vite that your frontend application lives in the 'client' folder.
   root: "client",
+
   plugins: [react()],
 
   resolve: {
     alias: {
-      // The aliases are now corrected to be relative to the 'client' root
-      "@": path.resolve(__dirname, "src"),
-      "@shared": path.resolve(__dirname, "../shared"), // Corrected path to go up one level
-      "@assets": path.resolve(__dirname, "src/assets"), // Corrected path
+      // This is the crucial fix. It correctly defines the "@" alias
+      // to point to the 'client/src' directory.
+      "@": path.resolve(__dirname, "./client/src"),
     },
   },
 
   build: {
+    // This tells Vite to place the build output in a 'dist' folder at the project root.
     outDir: "../dist",
     emptyOutDir: true,
   },
 
-  // The server proxy is useful for local development but can be removed if you prefer
+  // This section is for local development and helps mimic the production setup.
   server: {
     proxy: {
       "/api": {
