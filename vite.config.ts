@@ -3,13 +3,16 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 
 export default defineConfig({
+  // The root is correctly set to your frontend's directory
   root: "client",
   plugins: [react()],
 
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "client/src"),
-      "@shared": path.resolve(__dirname, "shared"),
+      // The aliases are now corrected to be relative to the 'client' root
+      "@": path.resolve(__dirname, "src"),
+      "@shared": path.resolve(__dirname, "../shared"), // Corrected path to go up one level
+      "@assets": path.resolve(__dirname, "src/assets"), // Corrected path
     },
   },
 
@@ -18,11 +21,11 @@ export default defineConfig({
     emptyOutDir: true,
   },
 
-  // This is the new section to add
+  // The server proxy is useful for local development but can be removed if you prefer
   server: {
     proxy: {
       "/api": {
-        target: "http://localhost:3001", // This should match the port your local server would run on
+        target: "http://localhost:3001",
         changeOrigin: true,
         secure: false,
       },
