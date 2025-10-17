@@ -7,8 +7,8 @@ import { useLocation } from "wouter";
 const texts = [
   "Vend with SolVend,",
   "Unlock Rare NFTs,",
-  "Monetize your Data,",
-  "Your daily reward",
+  "Earn from Data,",
+  "It's now or never,",
 ];
 const typingSpeed = 100;
 const erasingSpeed = 50;
@@ -66,11 +66,11 @@ export default function HeroSection() {
               />
               {/* Animated Lights */}
               <div
-                className="absolute top-[17%] left-[10%] w-8 h-8 md:w-10 md:h-10 rounded-full animate-light-flash"
+                className="absolute top-[17%] left-[10%] w-6 h-6 md:w-10 md:h-10 rounded-full animate-light-flash"
                 style={{ animationDelay: "0s" }}
               ></div>
               <div
-                className="absolute top-[21%] right-[30%] w-8 h-8 md:w-10 md:h-10 rounded-full animate-light-flash"
+                className="absolute top-[21%] right-[30%] w-6 h-6 md:w-10 md:h-10 rounded-full animate-light-flash"
                 style={{ animationDelay: "0.5s" }}
               ></div>
             </div>
