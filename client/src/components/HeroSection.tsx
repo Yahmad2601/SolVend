@@ -8,7 +8,7 @@ const texts = [
   "Vend with SolVend,",
   "Unlock Rare NFTs,",
   "Earn from Data,",
-  "It's now or never,",
+  "It's Now or Never,",
 ];
 const typingSpeed = 100;
 const erasingSpeed = 50;
