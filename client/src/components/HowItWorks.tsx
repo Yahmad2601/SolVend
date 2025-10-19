@@ -7,7 +7,7 @@ const steps = [
     number: "01",
     title: "Buy Your Drink",
     description:
-      "Choose your favorite drink in the app and pay seamlessly with your Google account or Solana wallet.",
+      "Choose your favorite drink in the SolVend app and pay seamlessly via Solana Pay.",
   },
   {
     icon: Coins,

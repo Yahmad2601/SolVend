@@ -8,7 +8,12 @@ const socialLinks = [
     label: "X (Twitter)",
     testId: "link-x",
   },
-  { icon: Github, href: "#", label: "GitHub", testId: "link-github" },
+  {
+    icon: Github,
+    href: "http://github.com/sadiqsaidu/solvend/",
+    label: "GitHub",
+    testId: "link-github",
+  },
   { icon: MessageCircle, href: "#", label: "Discord", testId: "link-discord" },
 ];
 
